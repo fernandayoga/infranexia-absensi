@@ -1,0 +1,51 @@
+name: absensi_infranexia
+description: Aplikasi Absensi Karyawan Infranexia by Telkom
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # HTTP & API
+  http: ^1.2.1
+  dio: ^5.4.3+1
+
+  # State Management
+  provider: ^6.1.2
+
+  # Local Storage (simpan token)
+  shared_preferences: ^2.2.3
+
+  # Navigation
+  go_router: ^13.2.0
+
+  # UI
+  cupertino_icons: ^1.0.6
+
+  # Camera
+  camera: ^0.10.5+9
+
+  # GPS
+  geolocator: ^11.0.0
+
+  # Face Detection
+  google_mlkit_face_detection: ^0.11.0
+
+  
+  image_picker: ^1.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/sto_data.json
+    - assets/images/LogoTunggal.png
+    - assets/images/LogoPanjang.png

@@ -1,0 +1,678 @@
+{
+  "BALI NUSRA": {
+    "MATARAM": {
+      "BIMA": [
+        "TENTE",
+        "BIMA",
+        "SAPE",
+        "DOMPU",
+        "SILA",
+        "KEMPO"
+      ],
+      "MATARAM": [
+        "SENGGIGI",
+        "MATARAM"
+      ],
+      "SWETA": [
+        "PRAYA",
+        "SWETA",
+        "GERUNG"
+      ],
+      "SELONG": [
+        "MASBAGIK",
+        "SELONG"
+      ],
+      "SUMBAWA": [
+        "SUMBAWA",
+        "MALUK",
+        "TALIWANG",
+        "EMPANG",
+        "ALAS"
+      ]
+    },
+    "DENPASAR": {
+      "SANUR": [
+        "SANUR",
+        "BENOA"
+      ],
+      "SINGARAJA": [
+        "SINGARAJA",
+        "SERIRIT",
+        "LOVINA",
+        "PUPUAN"
+      ],
+      "BULELENG": [
+        "MONANG MANING",
+        "KALIASEM"
+      ],
+      "JEMBRANA": [
+        "TABANAN",
+        "NEGARA",
+        "GILIMANUK"
+      ],
+      "SUKAWATI": [
+        "SUKAWATI",
+        "TOHPATI"
+      ],
+      "SEMARAPURA": [
+        "SERMA",
+        "AMLAPURA",
+        "CANDI DASA"
+      ],
+      "DHARMASABA": [
+        "UBUNG"
+      ],
+      "DENPASAR": [
+        "SEMINYAK",
+        "NUSA DUA",
+        "KUTA"
+      ],
+      "TABANAN": [
+        "BATURITI"
+      ],
+      "JIMBARAN": [
+        "JIMBARAN"
+      ],
+      "GIANYAR": [
+        "GIANYAR",
+        "BANGLI",
+        "KINTAMANI"
+      ],
+      "UBUD": [
+        "UBUD",
+        "TAMPAKSIRING"
+      ]
+    },
+    "KUPANG": {
+      "ATAMBUA": [
+        "ATAMBUA",
+        "SOE",
+        "KALABAHI",
+        "BETUN",
+        "KEFAMENANU",
+        "NIKI NIKI"
+      ],
+      "KUPANG": [
+        "KUPANG",
+        "OESAPA",
+        "TENAU"
+      ],
+      "SUMBA": [
+        "SEBA",
+        "WAINGAPU",
+        "WAIKABUBAK",
+        "BAA"
+      ]
+    },
+    "FLORES": {
+      "ENDE": [
+        "ENDE",
+        "BAJAWA",
+        "WOLOWARU"
+      ],
+      "LABUAN BAJO": [
+        "RUTENG",
+        "LABUAN BAJO",
+        "REO"
+      ],
+      "MAUMERE": [
+        "LEWOLEBA",
+        "MAUMERE",
+        "LARANTUKA"
+      ]
+    }
+  },
+  "JATENG-DIY": {
+    "SURAKARTA": {
+      "PALUR": [
+        "MOJOSONGO",
+        "PALUR",
+        "BEKONANG"
+      ],
+      "GLADAG": [
+        "GLADAG",
+        "SOLO BARU"
+      ],
+      "KARANGANYAR": [
+        "KARANGANYAR",
+        "TAWANGMANGU"
+      ],
+      "SRAGEN": [
+        "SRAGEN"
+      ],
+      "KERTEN": [
+        "KERTEN"
+      ],
+      "BOYOLALI": [
+        "KARTOSURO",
+        "BOYOLALI"
+      ],
+      "BLORA": [
+        "RANDUBLATUNG",
+        "BLORA",
+        "CEPU",
+        "NGAWEN"
+      ],
+      "PURWODADI": [
+        "PURWODADI",
+        "WIROSARI",
+        "GUBUG",
+        "GODONG",
+        "TOROH"
+      ],
+      "KLATEN": [
+        "PEDAN",
+        "KLATEN",
+        "DELANGGU"
+      ],
+      "WONOGIRI": [
+        "SUKOHARJO",
+        "BATURETNO",
+        "WONOGIRI",
+        "JATISRONO"
+      ]
+    },
+    "SEMARANG": {
+      "TUGU": [
+        "TUGU"
+      ],
+      "UNGARAN": [
+        "UNGARAN",
+        "AMBARAWA",
+        "PRINGAPUS/WONOREJO",
+        "BANDUNGAN",
+        "BAWEN"
+      ],
+      "BANYUMANIK": [
+        "CANDI",
+        "BANYUMANIK",
+        "SIMPANG LIMA"
+      ],
+      "MAJAPAHIT": [
+        "MAJAPAHIT"
+      ],
+      "KUDUS": [
+        "DEMAK",
+        "KUDUS"
+      ],
+      "JEPARA": [
+        "JEPARA",
+        "PECANGAAN",
+        "BANGSRI",
+        "KARIMUNJAWA",
+        "KELING"
+      ],
+      "JOHAR": [
+        "GENUK",
+        "JOHAR"
+      ],
+      "KENDAL": [
+        "KENDAL",
+        "WALERI",
+        "SUKOREJO"
+      ],
+      "SALATIGA": [
+        "SALATIGA"
+      ],
+      "PATI": [
+        "PATI",
+        "JUWANA",
+        "TAYU"
+      ],
+      "BOJA": [
+        "MANGKANG",
+        "BOJA",
+        "MIJEN"
+      ],
+      "REMBANG": [
+        "REMBANG",
+        "LASEM"
+      ]
+    },
+    "PURWOKERTO": {
+      "CILACAP": [
+        "GUMILIR",
+        "SIDAREJA",
+        "MAJENANG",
+        "CILACAP"
+      ],
+      "BANJARNEGARA": [
+        "BANJARNEGARA",
+        "KLAMPOK"
+      ],
+      "PURWOKERTO": [
+        "PURWOKERTO",
+        "AJIBARANG",
+        "CILONGOK",
+        "BATURADEN"
+      ],
+      "SUKARAJA": [
+        "KROYA",
+        "SUKARAJA",
+        "BANYUMAS",
+        "MAOS"
+      ],
+      "WONOSOBO": [
+        "WONOSOBO"
+      ]
+    },
+    "PEKALONGAN": {
+      "PEMALANG": [
+        "COMAL",
+        "KEDUNGWUNI",
+        "PEMALANG",
+        "KAJEN",
+        "RANDUDONGKAL"
+      ],
+      "TEGAL": [
+        "TEGAL",
+        "ADIWERNA",
+        "MARGADANA",
+        "BALAPULANG",
+        "SLAWI"
+      ],
+      "PURBALINGGA": [
+        "PURBALINGGA",
+        "BOBOTSARI"
+      ],
+      "PEKALONGAN": [
+        "BATANG",
+        "BANDAR SEDAYU",
+        "PEKALONGAN",
+        "SUBAH"
+      ],
+      "BREBES": [
+        "BREBES",
+        "BULAKAMBA",
+        "TANJUNG TEGAL",
+        "KETANGGUNGAN",
+        "BUMIAYU"
+      ]
+    },
+    "YOGYAKARTA": {
+      "YOGYAKARTA": [
+        "PUGERAN"
+      ],
+      "PAKEM": [
+        "PAKEM",
+        "KALASAN"
+      ],
+      "BANTUL": [
+        "BANTUL",
+        "WATES"
+      ],
+      "KOTAGEDE": [
+        "WONOSARI",
+        "KOTAGEDE"
+      ],
+      "SLEMAN": [
+        "SLEMAN",
+        "GODEAN"
+      ],
+      "KENTUNGAN": [
+        "BABARSARI",
+        "KENTUNGAN"
+      ],
+      "KOTABARU": [
+        "KOTABARU"
+      ]
+    },
+    "MAGELANG": {
+      "PURWOREJO": [
+        "SAWITAN",
+        "PURWOREJO",
+        "MUNTILAN",
+        "KUTOARJO"
+      ],
+      "MAGELANG": [
+        "MAGELANG",
+        "MERTOYUDAN"
+      ],
+      "KEBUMEN": [
+        "GOMBONG",
+        "KARANGANYAR",
+        "KEBUMEN",
+        "KUTOWINANGUN"
+      ],
+      "TEMANGGUNG": [
+        "TEMANGGUNG",
+        "PARAKAN"
+      ]
+    }
+  },
+  "JATIM": {
+    "SURABAYA": {
+      "DARMO": [
+        "DARMO"
+      ],
+      "KALIANAK": [
+        "KALIANAK"
+      ],
+      "KARANG PILANG": [
+        "BAMBE",
+        "KARANG PILANG"
+      ],
+      "BANGKALAN": [
+        "BANGKALAN",
+        "AROSBAYA",
+        "KAMAL",
+        "BLEGA",
+        "TANJUNG BUMI"
+      ],
+      "KEPUTIH": [
+        "MANYAR"
+      ],
+      "RUNGKUT": [
+        "RUNGKUT"
+      ],
+      "PAMEKASAN": [
+        "SAMPANG",
+        "OMBEN",
+        "WARU PAMEKASAN",
+        "PAMEKASAN",
+        "KETAPANG"
+      ],
+      "MERGOYOSO": [
+        "MARGOYOSO"
+      ],
+      "KAPASAN": [
+        "KAPASAN"
+      ],
+      "KENJERAN": [
+        "KENJERAN"
+      ],
+      "JAGIR": [
+        "JAGIR"
+      ],
+      "KANDANGAN": [
+        "KANDANGAN"
+      ],
+      "TANDES": [
+        "TANDES"
+      ],
+      "INJOKO": [
+        "INJOKO"
+      ],
+      "LAKARSANTRI": [
+        "LAKARSANTRI"
+      ],
+      "KEBALEN": [
+        "KEBALEN"
+      ],
+      "SUMENEP": [
+        "SUMENEP",
+        "PRAGAAN",
+        "ARJASA",
+        "BATANG-BATANG",
+        "ABUNTEN",
+        "SAPEKEN",
+        "SAPUDI"
+      ],
+      "GUBENG": [
+        "GUBENG"
+      ]
+    },
+    "SIDOARJO": {
+      "WARU": [
+        "WARU"
+      ],
+      "TROPODO": [
+        "TROPODO"
+      ],
+      "KRIAN": [
+        "SEPANJANG",
+        "KRIAN"
+      ],
+      "PANDAAN": [
+        "GEMPOL",
+        "PANDAAN",
+        "PURWOSARI",
+        "BEJI",
+        "PRIGEN"
+      ],
+      "SIDOARJO": [
+        "SIDOARJO"
+      ],
+      "SUKODONO": [
+        "GEDANGAN",
+        "TULANGAN",
+        "SUKODONO"
+      ],
+      "MOJOKERTO": [
+        "MOJOKERTO",
+        "MLIRIP MOJOKERTO",
+        "MOJOSARI",
+        "DLANGGU",
+        "NGORO INDUSTRI",
+        "PACET"
+      ],
+      "JOMBANG": [
+        "JOMBANG",
+        "MOJOAGUNG",
+        "PLOSO",
+        "NGORO JOMBANG"
+      ]
+    },
+    "JEMBER": {
+      "PASURUAN": [
+        "STO PASURUAN",
+        "BANGIL",
+        "GRATI",
+        "GONDANG WETAN",
+        "NONGKO JAJAR",
+        "TOSARI"
+      ],
+      "GENTENG": [
+        "GENTENG",
+        "ROGOJAMPI",
+        "BENCULUK",
+        "GLENMORE",
+        "KALIBARU",
+        "MUNCAR",
+        "PESANGGARAN"
+      ],
+      "BONDOWOSO": [
+        "BONDOWOSO",
+        "PRAJEKAN",
+        "SUKOSARI"
+      ],
+      "JEMBER": [
+        "KALISAT",
+        "JEMBER",
+        "SEMPOLAN",
+        "ARJASA",
+        "SUKOWONO"
+      ],
+      "PROBOLINGGO": [
+        "GENDING",
+        "SUKAPURA",
+        "PROBOLINGGO",
+        "MDF KRAKSAAN",
+        "MDF LECES",
+        "PAITON",
+        "TONGAS"
+      ],
+      "PUGER": [
+        "KENCONG",
+        "PUGER",
+        "JENGGAWAH",
+        "BALUNG",
+        "TANGGUL",
+        "RAMBIPUJI",
+        "AMBULU"
+      ],
+      "SITUBONDO": [
+        "MLANDINGAN",
+        "SITUBONDO",
+        "ASEMBAGUS",
+        "BESUKI"
+      ],
+      "LUMAJANG": [
+        "MDF PASIRIAN",
+        "LUMAJANG",
+        "JATIROTO",
+        "SENDURO",
+        "KLAKAH",
+        "TEMPEH",
+        "YOSOWILANGUN"
+      ],
+      "KEBONSARI": [
+        "KEBONSARI"
+      ],
+      "BANYUWANGI": [
+        "BANYUWANGI",
+        "WONGSOREJO",
+        "KETAPANG"
+      ]
+    },
+    "MADIUN": {
+      "TRENGGALEK": [
+        "TRENGGALEK",
+        "PRIGI",
+        "DURENAN"
+      ],
+      "PONOROGO": [
+        "PACITAN",
+        "PONOROGO",
+        "PULUNG",
+        "SAMBIT",
+        "PUNUNG",
+        "LOROG",
+        "JENANGAN",
+        "SLAHUNG",
+        "SUMOROTO"
+      ],
+      "MAGETAN": [
+        "WALIKUKUN",
+        "MAGETAN",
+        "JOGOROGO",
+        "NGAWI",
+        "SARANGAN",
+        "KARANGJATI",
+        "GORANG GARENG"
+      ],
+      "PARE": [
+        "PARE",
+        "WATES",
+        "PAPAR",
+        "KANDANGAN",
+        "GURAH"
+      ],
+      "MADIUN": [
+        "CARUBAN",
+        "MADIUN",
+        "MAOSPATI",
+        "UTERAN"
+      ],
+      "KEDIRI": [
+        "SAMBI",
+        "MOJOROTO",
+        "KEDIRI",
+        "NGADILUWIH"
+      ],
+      "NGANJUK": [
+        "WARUJAYENG",
+        "KERTOSONO",
+        "NGANJUK",
+        "GONDANG",
+        "PRAMBON"
+      ]
+    },
+    "MALANG": {
+      "BLIMBING": [
+        "BLIMBING"
+      ],
+      "KEPANJEN": [
+        "GADANG",
+        "KEPANJEN",
+        "DONOMULYO",
+        "SUMBERPUCUNG",
+        "GUNUNGKAWI",
+        "PAGAK"
+      ],
+      "SINGOSARI": [
+        "PAKIS",
+        "SAWOJAJAR",
+        "SINGOSARI",
+        "BURING",
+        "LAWANG",
+        "TUMPANG"
+      ],
+      "BATU": [
+        "KARANGPLOSO",
+        "BATU",
+        "NGANTANG"
+      ],
+      "TUREN": [
+        "GONDANGLEGI",
+        "TUREN",
+        "DAMPIT",
+        "AMPELGADING",
+        "SUMBERMANJING",
+        "BANTUR"
+      ],
+      "KLOJEN": [
+        "KLOJEN"
+      ],
+      "BLITAR": [
+        "LODOYO",
+        "WLINGI",
+        "BLITAR",
+        "SRENGAT",
+        "BINANGUN",
+        "KESAMBEN",
+        "PENATARAN"
+      ],
+      "MALANG": [
+        "MALANG"
+      ],
+      "TULUNGAGUNG": [
+        "TULUNGAGUNG",
+        "CAMPURDARAT",
+        "NGUNUT",
+        "KALIDAWIR"
+      ]
+    },
+    "LAMONGAN": {
+      "LAMONGAN": [
+        "BABAD",
+        "BRONDONG",
+        "SIDODADI",
+        "LAMONGAN"
+      ],
+      "CERME": [
+        "CERME",
+        "KEDAMEAN",
+        "SEDAYU",
+        "BAWEAN",
+        "BALONG PANGGANG",
+        "DUDUK SAMPEYAN"
+      ],
+      "BOJONEGORO": [
+        "PADANGAN",
+        "BOJONEGORO",
+        "KALITIDU",
+        "SUMBEREJO"
+      ],
+      "TUBAN": [
+        "TUBAN",
+        "RENGEL"
+      ],
+      "BANCAR": [
+        "JATIROGO",
+        "MERAKURAK",
+        "KEREK",
+        "BANCAR"
+      ],
+      "GRESIK": [
+        "GRESIK",
+        "PONGANGAN"
+      ]
+    },
+    "MAGELANG": {
+      "PURWOREJO": [
+        "MUNGKID"
+      ]
+    }
+  }
+}
