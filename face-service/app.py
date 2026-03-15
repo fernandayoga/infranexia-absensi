@@ -28,44 +28,46 @@ def compare_face():
         stored_image_path = data.get('stored_image_path')
 
         if not live_image_base64 or not stored_image_path:
-            return jsonify({
-                'match': False,
-                'message': 'Data tidak lengkap'
-            }), 400
+            return jsonify({'match': False, 'message': 'Data tidak lengkap'}), 400
 
         if not os.path.exists(stored_image_path):
-            return jsonify({
-                'match': False,
-                'message': 'Foto referensi tidak ditemukan'
-            }), 404
+            return jsonify({'match': False, 'message': 'Foto referensi tidak ditemukan'}), 404
 
         # Decode base64 → simpan sebagai file temporary
         live_image_bytes = base64.b64decode(live_image_base64)
         live_image = Image.open(io.BytesIO(live_image_bytes)).convert('RGB')
 
-        # Simpan ke temp file
         with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as tmp:
-            live_image.save(tmp.name)
+            live_image.save(tmp.name, 'JPEG', quality=85)
             tmp_path = tmp.name
 
+        # ← Preprocess foto dari DB juga
+        stored_image = Image.open(stored_image_path).convert('RGB')
+        with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as tmp2:
+            stored_image.save(tmp2.name, 'JPEG', quality=85)
+            tmp2_path = tmp2.name
+
         try:
-            # Bandingkan wajah menggunakan DeepFace
             result = DeepFace.verify(
                 img1_path=tmp_path,
-                img2_path=stored_image_path,
-                model_name='Facenet',   # bisa diganti: Facenet, ArcFace
+                img2_path=tmp2_path,  # ← pakai tmp2_path bukan stored_image_path
+                model_name='Facenet',
                 enforce_detection=False,
                 distance_metric='cosine',
-                detector_backend='opencv' 
+                detector_backend='opencv'
             )
 
             is_match = result['verified']
             distance = result['distance']
             threshold = result['threshold']
-            STRICT_THRESHOLD = 0.20  # default Facenet cosine ~0.4, kita perketat
+
+            # Threshold ketat
+            STRICT_THRESHOLD = 0.20
             if distance > STRICT_THRESHOLD:
                 is_match = False
+
             confidence = round((1 - distance) * 100, 2)
+
             print(f'=== COMPARE RESULT ===')
             print(f'Match: {is_match}')
             print(f'Distance: {distance:.4f}')
@@ -81,19 +83,24 @@ def compare_face():
             })
 
         finally:
-            # Hapus temp file
+            # Hapus kedua temp file
             if os.path.exists(tmp_path):
                 os.unlink(tmp_path)
+            if os.path.exists(tmp2_path):
+                os.unlink(tmp2_path)
+            # Bersihkan memori
+            import gc
+            gc.collect()
 
     except Exception as e:
         print(f'Full error: {str(e)}')
         import traceback
         traceback.print_exc()
-        # Kalau tidak ada wajah terdeteksi
+
         if 'Face could not be detected' in str(e):
             return jsonify({
                 'match': False,
-                'message': 'Wajah tidak terdeteksi, pastikan pencahayaan cukup'
+                'message': 'Wajah tidak terdeteksi'
             }), 400
 
         return jsonify({

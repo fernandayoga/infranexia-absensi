@@ -42,6 +42,8 @@ export const faceLogin = async (req, res) => {
       if (!fs.existsSync(storedImagePath)) continue;
 
       try {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
         const response = await fetch(
           `${process.env.FACE_SERVICE_URL}/compare`,
           {
@@ -55,19 +57,24 @@ export const faceLogin = async (req, res) => {
         );
 
         const result = await response.json();
+        const confidence = result.confidence ?? 0;
 
         console.log(
           `User ${user.id} (${user.name}): match=${result.match}, confidence=${result.confidence}`,
         );
 
+
         if (
           result.match &&
-          result.confidence > highestConfidence &&
-          result.confidence >= MIN_CONFIDENCE
+          confidence > highestConfidence &&
+          confidence >= MIN_CONFIDENCE
         ) {
-          highestConfidence = result.confidence;
+          highestConfidence = confidence;
           matchedUser = user;
         }
+
+        if (highestConfidence >= 85) break;
+        
       } catch (err) {
         console.error(`Error comparing with user ${user.id}:`, err);
         continue;
