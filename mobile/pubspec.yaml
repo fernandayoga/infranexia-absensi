@@ -26,6 +26,9 @@ dependencies:
   # UI
   cupertino_icons: ^1.0.6
 
+  # Image Processing
+  image: ^4.1.7
+
   # Camera
   camera: ^0.10.5+9
 

@@ -20,39 +20,39 @@ class AuthProvider extends ChangeNotifier {
 
   // Register
   Future<bool> register({
-  required String name,
-  required String email,
-  required String password,
-  required File faceImage,
-  required String region,
-  required String district,
-  required String subDistrict,
-  required String stoName,
-}) async {
-  _setLoading(true);
-  _errorMessage = null;
+    required String name,
+    required String email,
+    required String password,
+    required File faceImage,
+    required String region,
+    required String district,
+    required String subDistrict,
+    required String stoName,
+  }) async {
+    _setLoading(true);
+    _errorMessage = null;
 
-  final result = await _authService.register(
-    name: name,
-    email: email,
-    password: password,
-    faceImage: faceImage,
-    region: region,
-    district: district,
-    subDistrict: subDistrict,
-    stoName: stoName,
-  );
+    final result = await _authService.register(
+      name: name,
+      email: email,
+      password: password,
+      faceImage: faceImage,
+      region: region,
+      district: district,
+      subDistrict: subDistrict,
+      stoName: stoName,
+    );
 
-  _setLoading(false);
+    _setLoading(false);
 
-  if (result['success']) {
-    return true;
-  } else {
-    _errorMessage = result['message'];
-    notifyListeners();
-    return false;
+    if (result['success']) {
+      return true;
+    } else {
+      _errorMessage = result['message'];
+      notifyListeners();
+      return false;
+    }
   }
-}
 
   // Login
   Future<bool> login({
@@ -66,6 +66,26 @@ class AuthProvider extends ChangeNotifier {
       email: email,
       password: password,
     );
+
+    _setLoading(false);
+
+    if (result['success']) {
+      _user = result['data']['user'];
+      notifyListeners();
+      return true;
+    } else {
+      _errorMessage = result['message'];
+      notifyListeners();
+      return false;
+    }
+  }
+
+// Face Login
+  Future<bool> faceLogin({required File faceImage}) async {
+    _setLoading(true);
+    _errorMessage = null;
+
+    final result = await _authService.faceLogin(faceImage: faceImage);
 
     _setLoading(false);
 

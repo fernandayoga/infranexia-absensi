@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import 'register_screen.dart';
 import '../../home/screens/home_screen.dart';
+import 'dart:io';
+import '../../../shared/widgets/liveness_detection_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -46,6 +48,50 @@ class _LoginScreenState extends State<LoginScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(authProvider.errorMessage ?? 'Login gagal'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
+
+  // Login dengan wajah
+  Future<void> _handleFaceLogin() async {
+    // Buka liveness detection dulu
+    final File? faceImage = await Navigator.push<File?>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => const LivenessDetectionScreen(),
+      ),
+    );
+
+    if (faceImage == null) return;
+    if (!mounted) return;
+
+    final authProvider = context.read<AuthProvider>();
+
+    // Tampilkan loading
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => const Center(
+        child: CircularProgressIndicator(color: Color(0xFFCC0000)),
+      ),
+    );
+
+    final success = await authProvider.faceLogin(faceImage: faceImage);
+
+    if (!mounted) return;
+    Navigator.pop(context); // tutup loading
+
+    if (success) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const HomeScreen()),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(authProvider.errorMessage ?? 'Wajah tidak dikenali'),
           backgroundColor: Colors.red,
         ),
       );
@@ -277,6 +323,47 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    Row(
+                      children: [
+                        const Expanded(child: Divider(color: Colors.black26)),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 12),
+                          child: Text('atau',
+                              style: TextStyle(color: Colors.black38)),
+                        ),
+                        const Expanded(child: Divider(color: Colors.black26)),
+                      ],
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    SizedBox(
+                      width: double.infinity,
+                      height: 52,
+                      child: OutlinedButton.icon(
+                        onPressed:
+                            authProvider.isLoading ? null : _handleFaceLogin,
+                        icon: const Icon(Icons.face_outlined,
+                            color: Color(0xFFCC0000)),
+                        label: const Text(
+                          'Login dengan Wajah',
+                          style: TextStyle(
+                            color: Color(0xFFCC0000),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        style: OutlinedButton.styleFrom(
+                          side: const BorderSide(color: Color(0xFFCC0000)),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
                       ),
                     ),
 

@@ -1,3 +1,5 @@
+from turtle import distance
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from deepface import DeepFace
@@ -51,15 +53,24 @@ def compare_face():
             result = DeepFace.verify(
                 img1_path=tmp_path,
                 img2_path=stored_image_path,
-                model_name='VGG-Face',  # bisa diganti: Facenet, ArcFace
-                enforce_detection=True,
-                distance_metric='cosine'
+                model_name='Facenet',   # bisa diganti: Facenet, ArcFace
+                enforce_detection=False,
+                distance_metric='cosine',
+                detector_backend='opencv' 
             )
 
             is_match = result['verified']
             distance = result['distance']
             threshold = result['threshold']
+            STRICT_THRESHOLD = 0.20  # default Facenet cosine ~0.4, kita perketat
+            if distance > STRICT_THRESHOLD:
+                is_match = False
             confidence = round((1 - distance) * 100, 2)
+            print(f'=== COMPARE RESULT ===')
+            print(f'Match: {is_match}')
+            print(f'Distance: {distance:.4f}')
+            print(f'Threshold: {threshold:.4f}')
+            print(f'Confidence: {confidence}%')
 
             return jsonify({
                 'match': is_match,
@@ -75,7 +86,9 @@ def compare_face():
                 os.unlink(tmp_path)
 
     except Exception as e:
-        print(f'Error: {e}')
+        print(f'Full error: {str(e)}')
+        import traceback
+        traceback.print_exc()
         # Kalau tidak ada wajah terdeteksi
         if 'Face could not be detected' in str(e):
             return jsonify({

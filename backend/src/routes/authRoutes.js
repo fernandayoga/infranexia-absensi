@@ -3,6 +3,7 @@ import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { register, login, getProfile } from '../controllers/authController.js';
+import { faceLogin } from '../controllers/faceAuthController.js';
 import authMiddleware from '../middleware/auth.js';
 
 const router = express.Router();
@@ -35,5 +36,6 @@ const upload = multer({
 router.post('/register', upload.single('face_image'), register);
 router.post('/login', login);
 router.get('/profile', authMiddleware, getProfile);
+router.post('/face-login', faceLogin);
 
 export default router;
