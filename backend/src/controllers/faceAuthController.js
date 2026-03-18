@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export const faceLogin = async (req, res) => {
-  const MIN_CONFIDENCE = 80;
+  const MIN_CONFIDENCE = 85;
   try {
     const { live_image_base64 } = req.body;
 

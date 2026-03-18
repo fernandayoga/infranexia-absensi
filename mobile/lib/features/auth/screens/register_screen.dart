@@ -7,6 +7,7 @@ import 'login_screen.dart';
 import '../../../shared/widgets/sto_dropdown.dart';
 import '../../../core/services/face_detector_service.dart';
 import '../../../shared/widgets/liveness_detection_screen.dart';
+import 'package:image/image.dart' as img_lib;
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -51,17 +52,92 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
 
-    if (result != null) {
-      setState(() => _faceImage = result);
+    if (result == null) return;
+
+    setState(() => _isDetectingFace = true);
+
+    // ===== VALIDASI DI FLUTTER =====
+    final bytes = await result.readAsBytes();
+    final decodedImage = img_lib.decodeImage(bytes);
+
+    if (decodedImage == null) {
+      setState(() => _isDetectingFace = false);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('✅ Liveness berhasil! Foto wajah tersimpan.'),
-          backgroundColor: Colors.green,
-          duration: Duration(seconds: 2),
+          content: Text('❌ Gagal membaca foto, coba lagi'),
+          backgroundColor: Colors.red,
         ),
       );
+      return;
     }
+
+    
+    // Cek kecerahan - cara lebih cepat
+    final grayscale = img_lib.grayscale(decodedImage);
+    double brightness = 0;
+    int sampleSize = 100; // sample 100 pixel saja, tidak perlu semua
+    final stepX = decodedImage.width ~/ 10;
+    final stepY = decodedImage.height ~/ 10;
+
+    for (int y = 0; y < decodedImage.height; y += stepY) {
+      for (int x = 0; x < decodedImage.width; x += stepX) {
+        final pixel = grayscale.getPixel(x, y);
+        brightness += pixel.r;
+      }
+    }
+    brightness /= sampleSize;
+
+    if (brightness < 60) {
+      setState(() => _isDetectingFace = false);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('❌ Foto terlalu gelap, cari tempat lebih terang'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    if (brightness > 220) {
+      setState(() => _isDetectingFace = false);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('❌ Foto terlalu terang, hindari cahaya langsung'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    // Cek wajah dengan ML Kit
+    final faceResult = await _faceDetectorService.detectFace(result);
+
+    setState(() => _isDetectingFace = false);
+
+    if (!mounted) return;
+
+    if (!faceResult.success) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('❌ ${faceResult.message}'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    // Semua validasi passed
+    setState(() => _faceImage = result);
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('✅ Foto wajah valid!'),
+        backgroundColor: Colors.green,
+        duration: Duration(seconds: 1),
+      ),
+    );
   }
 
   Future<void> _handleRegister() async {

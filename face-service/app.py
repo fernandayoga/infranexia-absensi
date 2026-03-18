@@ -9,6 +9,7 @@ import numpy as np
 from PIL import Image
 import io
 import tempfile
+import cv2
 
 app = Flask(__name__)
 CORS(app)
@@ -17,6 +18,17 @@ CORS(app)
 @app.route('/', methods=['GET'])
 def index():
     return jsonify({'message': 'Face Recognition Service is running 🚀'})
+
+# ← Tambahkan fungsi helper ini di atas route
+def load_image_as_numpy(image_path):
+    img = cv2.imread(image_path)
+    if img is None:
+        img = np.array(Image.open(image_path).convert('RGB'))
+        img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    else:
+        img = np.array(img)
+    return img
+
 
 # ===== COMPARE FACE =====
 @app.route('/compare', methods=['POST'])
@@ -46,6 +58,13 @@ def compare_face():
         with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as tmp2:
             stored_image.save(tmp2.name, 'JPEG', quality=85)
             tmp2_path = tmp2.name
+
+        # Preprocess kedua gambar ke numpy dulu
+        img1 = load_image_as_numpy(tmp_path)
+        img2 = load_image_as_numpy(tmp2_path)
+
+        cv2.imwrite(tmp_path, img1)
+        cv2.imwrite(tmp2_path, img2)
 
         try:
             result = DeepFace.verify(
